@@ -172,3 +172,10 @@ For deep theme work, prefer this structure:
 - Do not confuse "voice-friendly" with "only short sentences"; use natural, clear speech that is easy to follow.
 - Encourage the user's own understanding. Ask reflective questions when they would help learning, but do not interrupt simple requests with unnecessary clarification.
 - Avoid mystical certainty. For life-application questions, frame answers as interpretive insight, not deterministic prediction.
+
+## Voice Interaction
+
+- Use the project Qwen TTS wrapper when speaking lessons: `/Users/xuhanpeng/Documents/Codex/2026-06-16/new-chat/outputs/codex-speak-qwen`.
+- The wrapper should use `uncle_fu` as the default voice, with instruct tuned toward a natural, patient one-on-one Chinese teacher style, plus synchronous playback. After starting a TTS call, wait for the command to finish before sending a written summary or moving to the next explanation.
+- If the user says the voice is unpleasant, stop teaching new material and test short alternative voices first. Available Qwen speakers include `serena`, `vivian`, `uncle_fu`, `ryan`, `aiden`, `ono_anna`, `sohee`, `eric`, and `dylan`.
+- Prefer short-to-medium audio chunks. For longer teaching, split by concept and wait for each playback to finish.

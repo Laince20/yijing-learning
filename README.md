@@ -63,7 +63,7 @@
 /Users/xuhanpeng/Documents/Codex/2026-06-16/new-chat/outputs/codex-speak-qwen
 ```
 
-默认使用 `uncle_fu` 音色、中文老师口吻、略慢语速，并通过 `afplay` 同步播放。调用后要等语音播放结束，再继续下一段讲解或写总结。若 Qwen TTS 失败，临时使用 macOS `say` 或纯文字继续。
+默认使用 `ryan` 音色，通过 instruct 调成自然、亲切、耐心的一对一中文老师口吻，并通过 `afplay` 同步播放。调用后要等语音播放结束，再继续下一段讲解或写总结。若 Qwen TTS 失败，临时使用 macOS `say` 或纯文字继续。
 
 更多细节见 `学习资料/语音学习与学习模式.md`。
 

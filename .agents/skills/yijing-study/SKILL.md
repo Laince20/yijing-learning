@@ -176,6 +176,8 @@ For deep theme work, prefer this structure:
 ## Voice Interaction
 
 - Use the project Qwen TTS wrapper when speaking lessons: `/Users/xuhanpeng/Documents/Codex/2026-06-16/new-chat/outputs/codex-speak-qwen`.
-- The wrapper should use `uncle_fu` as the default voice, with instruct tuned toward a natural, patient one-on-one Chinese teacher style, plus synchronous playback. After starting a TTS call, wait for the command to finish before sending a written summary or moving to the next explanation.
+- The wrapper should use `ryan` as the default voice, with instruct tuned toward a natural, patient one-on-one Chinese teacher style, plus synchronous playback. After starting a TTS call, wait for the command to finish before sending a written summary or moving to the next explanation.
+- Because playback completion may still not match the user's perceived audio ending, use short confirmed chunks for voice lessons: one small point per audio clip, roughly 30-45 seconds when possible. After each clip, stop and wait for the user to say "继续", "听完了", or ask a question before continuing.
+- If the user says the audio did not finish, immediately stop new teaching content and either replay the missing part in a shorter clip or wait for confirmation. Do not summarize or move on.
 - If the user says the voice is unpleasant, stop teaching new material and test short alternative voices first. Available Qwen speakers include `serena`, `vivian`, `uncle_fu`, `ryan`, `aiden`, `ono_anna`, `sohee`, `eric`, and `dylan`.
 - Prefer short-to-medium audio chunks. For longer teaching, split by concept and wait for each playback to finish.

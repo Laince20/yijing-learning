@@ -1,0 +1,31 @@
+# macOS / editor noise
+.DS_Store
+*.swp
+*.swo
+
+# Local source books and extracted full text.
+# These files are used for private study only and must not be committed.
+易经(白话全译).pdf
+易经(白话全译).txt
+曾仕强-易经的智慧.pdf
+易经真的很容易.pdf
+
+# Possible generated derivatives of copyrighted sources.
+*.ocr.txt
+*.extracted.txt
+*.pages.txt
+ocr/
+extracted/
+renders/
+
+# Local audio or speech output.
+*.mp3
+*.wav
+*.m4a
+*.aac
+audio/
+
+# Local caches and temporary files.
+.cache/
+tmp/
+temp/

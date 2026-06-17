@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yi Jing Study"
+  short_description: "Source-grounded Yi Jing lessons and study notes"
+  default_prompt: "Use $yijing-study to teach one Yi Jing knowledge point from the project sources."

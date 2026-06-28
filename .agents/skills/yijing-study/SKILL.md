@@ -16,6 +16,9 @@ Use this skill to make Yi Jing study source-grounded and teachable. The primary 
 - Use `易经真的很容易.pdf` for visual explanations and beginner-friendly diagrams. It is image-based, so render or OCR pages only when needed.
 - Use `学习资料/外部知识库.md` to locate optional local knowledge-base skills. Query them only after the main text is clear, and only as supplement, comparison, or expansion.
 - Keep study outputs under `学习资料/` unless the user asks for another location.
+- Keep course notes under `学习资料/课程笔记/`.
+- Keep per-session learning records under `学习资料/学习记录/`.
+- Keep daily learning reports under `学习资料/学习日报/`.
 - Cite sources by book name plus chapter, section, topic, or PDF page when available. Do not present a supporting-book interpretation as if it were the main text.
 
 ## Auxiliary Knowledge Bases
@@ -35,14 +38,17 @@ Do not let these knowledge bases replace the main text. When using them, label t
 
 Before teaching a knowledge point:
 
-1. Locate the relevant main-text passage in `易经(白话全译).txt`; use the PDF for page or layout checks when useful.
-2. Read enough surrounding text to understand context, not just the matching sentence.
-3. If the concept benefits from an entry-level or modern explanation, consult the supporting PDFs after the main-text backbone is clear.
-4. If the chapter naturally overlaps with the auxiliary knowledge bases, read only the relevant reference file and use it as a clearly labeled supplement.
-5. Select one or two short original lines or key phrases as memorization hooks. Do not overload the user with many quotes.
-6. Build a teaching outline around the user's learning rhythm: simple principle, example, expanded reading, memorization hook, final digest, and next question.
-7. Teach from that outline. Do not answer as if relying only on general memory.
-8. Leave room for interaction. Do not mark a lesson complete until the user confirms understanding, asks to move on, or the same point has been explored enough through multiple turns.
+1. Check `学习资料/学习进度.md` and, when material routing matters, `学习资料/资料索引/三书使用地图.md` before choosing sources.
+2. Locate the relevant main-text passage in `易经(白话全译).txt`; use the PDF for page or layout checks when useful.
+3. Read enough surrounding text to understand context, not just the matching sentence.
+4. If the concept benefits from an entry-level or modern explanation, consult the supporting PDFs after the main-text backbone is clear.
+5. If the chapter naturally overlaps with the auxiliary knowledge bases, read only the relevant reference file and use it as a clearly labeled supplement.
+6. Select one or two short original lines or key phrases as memorization hooks. Do not overload the user with many quotes.
+7. Build a teaching outline around the user's learning rhythm: simple principle, example, expanded reading, memorization hook, final digest, and next question. For voice sessions, prepare the full written outline first, then split the spoken version into numbered, self-contained audio sections.
+8. Teach from that outline. Do not answer as if relying only on general memory.
+9. Leave room for interaction. Do not mark a lesson complete until the user confirms understanding, asks to move on, or the same point has been explored enough through multiple turns.
+
+When introducing a new hexagram, named concept, or technical term, do not use it as an example before defining it. First give its pronunciation when helpful, order or place in the system, basic structure, core original line(s), and a plain-language meaning. Only after that use it to explain another concept.
 
 If the source has not yet been checked, say that the point should be confirmed in the text, then inspect the relevant source before teaching.
 
@@ -101,6 +107,43 @@ Use `学习资料/学习进度.md` as the course memory. Update it when the user
 - 关键领悟
 - 下次建议主题
 
+When a learning session ends, append a short session record to `学习资料/学习记录/YYYY-MM-DD-学习记录.md`. Same-day sessions from multiple threads should append to the same dated file when possible.
+
+## Session Closing Loop
+
+When the user says "今天到这儿", "今天先这样", or otherwise clearly closes the learning session:
+
+1. Review what was taught, what the user restated, and what was corrected.
+2. Update the course note for durable understanding, not every conversational detail.
+3. Update `学习资料/学习进度.md` with the current state and next entry point.
+4. Append the dated learning record under `学习资料/学习记录/`.
+5. Reflect on the learning process itself using a yin-yang loop:
+   - Yang: what Codex output, explained, advanced, or initiated.
+   - Yin: what the user absorbed, questioned, corrected, or asked to slow down.
+   - Transformation: what Codex should change in the skill, workflow, source routing, audio strategy, or next lesson.
+6. If a workflow or skill improvement is durable, update the relevant project file instead of only mentioning it in chat.
+
+## Understanding Calibration Loop
+
+For each lesson, include a "yin" learning loop after enough explanation has been given. This is not a formal test, quiz, or exam-prep routine; it is a gentle calibration of understanding.
+
+1. Ask the user to restate the idea in their own words.
+2. Ask the user to give one personal work/life/study example.
+3. Check the example: what fits the concept, what is slightly off, and how to refine it.
+4. Record the refined understanding in the lesson note and review it at the start of the next session.
+
+This balances the "yang" of listening, moving forward, and understanding with the "yin" of restating, applying, correction, and consolidation.
+
+## Daily Report Workflow
+
+Daily reports should be generated only when there is learning material to summarize.
+
+1. Check `学习资料/学习记录/` for records from the target date.
+2. If there is no dated record and no meaningful course-note/progress update for that date, do not create an empty report.
+3. If there are records, create or update `学习资料/学习日报/YYYY-MM-DD-学习日报.md`.
+4. Include what was learned, how the user interacted, user restatements or questions, corrected understandings, memory hooks, and the next suggested entry point.
+5. When the user studied in multiple conversations, merge the same-day session records into one daily report.
+
 ## Indexing Workflow
 
 - Chapter index: organize the main text by preface, 经上, 经下, sixty-four hexagrams, and references. For each entry record title, section number, source location, keywords, and a short learning summary.
@@ -137,7 +180,7 @@ For study notes, prefer this structure:
 
 ## 我还想追问
 
-## 复习题
+## 理解校准
 ```
 
 ## Theme Research Template
@@ -177,7 +220,9 @@ For deep theme work, prefer this structure:
 
 - Use the project Qwen TTS wrapper when speaking lessons: `/Users/xuhanpeng/Documents/Codex/2026-06-16/new-chat/outputs/codex-speak-qwen`.
 - The wrapper should use `ryan` as the default voice, with instruct tuned toward a natural, patient one-on-one Chinese teacher style, plus synchronous playback. After starting a TTS call, wait for the command to finish before sending a written summary or moving to the next explanation.
-- Because playback completion may still not match the user's perceived audio ending, use short confirmed chunks for voice lessons: one small point per audio clip, roughly 30-45 seconds when possible. After each clip, stop and wait for the user to say "继续", "听完了", or ask a question before continuing.
+- For better reliability, prefer the project segmented audio helper when teaching multiple points: `学习资料/tools/speak_sections.sh "section 1" "section 2" ...`. It generates one wav per section, checks the file with `afinfo`, and plays sections one by one. If a section fails or is clipped, replay only that section.
+- Because playback completion may still not match the user's perceived audio ending, use confirmed chunks for voice lessons. The full lesson can be content-rich, but split the audio into numbered sections. Each section should be self-contained and should not put important concepts, definitions, original lines, or assignments only in the final sentence.
+- For longer voice sections, call the wrapper with safer runtime settings, for example `QWEN_TTS_MAX_TOKENS=2048 QWEN_TTS_POST_PLAY_SLEEP=8`, and add a non-essential ending marker such as "这一小节到这里" so that any tail clipping does not remove key content.
 - If the user says the audio did not finish, immediately stop new teaching content and either replay the missing part in a shorter clip or wait for confirmation. Do not summarize or move on.
 - If the user says the voice is unpleasant, stop teaching new material and test short alternative voices first. Available Qwen speakers include `serena`, `vivian`, `uncle_fu`, `ryan`, `aiden`, `ono_anna`, `sohee`, `eric`, and `dylan`.
-- Prefer short-to-medium audio chunks. For longer teaching, split by concept and wait for each playback to finish.
+- Prefer short-to-medium audio chunks for reliability. If the user asks for richer teaching, make the written companion fuller and use multiple audio sections rather than one long audio block.

@@ -1,4 +1,4 @@
-# 语音学习与学习模式
+# TTS 语音层
 
 ## 一句话说明
 
@@ -102,7 +102,7 @@ QWEN_TTS_MAX_TOKENS=2048 QWEN_TTS_POST_PLAY_SLEEP=8 /Users/xuhanpeng/Documents/C
 用户已明确可以接受多个音频文件。为提高稳定性，语音课优先使用项目脚本分段生成和播放：
 
 ```bash
-学习资料/tools/speak_sections.sh "第一小节文本" "第二小节文本" "第三小节文本"
+tts/speak_sections.sh "第一小节文本" "第二小节文本" "第三小节文本"
 ```
 
 这个脚本会：
@@ -185,3 +185,5 @@ QWEN_TTS_MAX_TOKENS=2048 QWEN_TTS_POST_PLAY_SLEEP=8 /Users/xuhanpeng/Documents/C
 - 语音继续使用先生成后连续播放的分段流程。
 - 每次正式讲新内容前，优先检查主书和 `学习资料/资料索引/三书使用地图.md`。
 - 学习结束时必须写入当天学习记录，并更新下次入口。
+
+完整的理解校准、学习收束、日报和阴阳反馈规则，统一维护在顶层 `loop/`。

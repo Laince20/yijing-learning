@@ -19,8 +19,8 @@
 
 TTS 不是独立 skill 文件夹，而是课程主 Agent 的语音执行层。
 
-- 项目脚本：`学习资料/tools/speak_sections.sh`
-- 流程说明：`学习资料/语音学习与学习模式.md`
+- 项目脚本：`tts/speak_sections.sh`
+- 流程说明：`tts/README.md`
 - 规则来源：`AGENTS.md` 的“语音交互”部分，以及 `yijing-study/SKILL.md` 的 “Voice Interaction” 部分。
 - 本地依赖：`/Users/xuhanpeng/Documents/Codex/2026-06-16/new-chat/outputs/codex-speak-qwen`
 
@@ -34,8 +34,8 @@ TTS 不是独立 skill 文件夹，而是课程主 Agent 的语音执行层。
   - `Understanding Calibration Loop`
   - `Session Closing Loop`
   - `Daily Report Workflow`
-- 流程说明：`学习资料/语音学习与学习模式.md`
-- 日报规则：`学习资料/学习日报/日报规则.md`
+- 流程说明：`loop/README.md`
+- 日报规则：`loop/日报规则.md`
 - 产出位置：
   - `学习资料/课程笔记/`
   - `学习资料/学习记录/`
